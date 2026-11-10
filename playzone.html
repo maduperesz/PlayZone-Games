@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlayZone — diversão em um clique</title>
+<style>
+:root{--bg:#0b1020;--panel:#141c32;--muted:#aab5d0;--text:#f7f8ff;--pink:#ff5fa2;--cyan:#55d9e8;--purple:#9b83ff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 10% 0%,#27204c 0,transparent 34%),radial-gradient(circle at 90% 10%,#123b50 0,transparent 30%),var(--bg);color:var(--text);min-height:100vh}
+header{max-width:1100px;margin:auto;padding:28px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:900;font-size:1.35rem;letter-spacing:-.6px}.logo span{color:var(--pink)}nav{display:flex;gap:18px}nav a{color:var(--muted);text-decoration:none;font-size:.92rem}nav a:hover{color:white}
+main{max-width:1100px;margin:auto;padding:34px 22px 70px}.hero{padding:52px 38px;border:1px solid #ffffff18;border-radius:28px;background:linear-gradient(115deg,#211b43dd,#132c40dd);position:relative;overflow:hidden;box-shadow:0 22px 70px #0005}
+.hero:after{content:"✦";position:absolute;right:7%;top:8%;font-size:9rem;color:#ffffff12;transform:rotate(15deg)}
+.eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.02;letter-spacing:-2px;margin:14px 0}.hero p{color:#c4cce0;max-width:560px;line-height:1.7;margin-bottom:25px}
+.primary{border:0;border-radius:13px;padding:13px 19px;background:linear-gradient(100deg,var(--pink),#a77aff);color:white;font-weight:800;cursor:pointer;box-shadow:0 8px 25px #ff5fa244}.primary:hover{transform:translateY(-2px)}
+.section-head{display:flex;align-items:end;justify-content:space-between;margin:42px 0 18px;gap:12px}.section-head h2{margin:0;font-size:1.55rem}.section-head p{margin:5px 0 0;color:var(--muted);font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.game-card{background:linear-gradient(145deg,#19233d,#111a2d);border:1px solid #ffffff14;border-radius:21px;padding:20px;transition:.2s;min-height:220px;display:flex;flex-direction:column}.game-card:hover{transform:translateY(-5px);border-color:#ffffff45}
+.emoji{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;font-size:1.8rem;background:#ffffff12;margin-bottom:18px}.game-card h3{margin:0 0 7px}.game-card p{color:var(--muted);font-size:.9rem;line-height:1.5;margin:0 0 18px}.game-card button{margin-top:auto;align-self:flex-start;border:1px solid #ffffff30;background:#ffffff0b;color:white;border-radius:11px;padding:10px 14px;cursor:pointer;font-weight:700}.game-card button:hover{background:#ffffff1b}
+.game-area{margin-top:28px;background:#10192b;border:1px solid #ffffff20;border-radius:22px;padding:24px;display:none}.game-area.active{display:block}.game-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.game-top h2{margin:0}.close{background:transparent;border:1px solid #ffffff30;color:white;border-radius:10px;padding:8px 12px;cursor:pointer}
+.playbox{margin-top:18px;padding:24px;background:#ffffff08;border-radius:16px;text-align:center;min-height:170px}.playbox p{color:var(--muted)}.game-input{background:#0b1020;border:1px solid #ffffff35;color:white;border-radius:10px;padding:11px;width:110px;text-align:center;font-size:1rem}.action{background:var(--cyan);color:#07131c;border:0;border-radius:10px;padding:11px 15px;font-weight:900;cursor:pointer;margin:5px}.memory-grid{display:grid;grid-template-columns:repeat(4, minmax(52px,75px));justify-content:center;gap:9px;margin:18px auto}.memory-tile{height:65px;border:1px solid #ffffff2a;border-radius:12px;background:#263354;color:white;font-size:1.5rem;cursor:pointer}.memory-tile.open{background:#51427e}.score{font-weight:800;color:var(--cyan)}footer{text-align:center;color:#8490ac;padding:25px;font-size:.85rem}
+@media(max-width:760px){.grid{grid-template-columns:1fr 1fr}.hero{padding:36px 24px}nav{display:none}}
+@media(max-width:500px){.grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="logo">PLAY<span>ZONE</span> ✦</div><nav><a href="#jogos">Jogos</a><a href="#sobre">Sobre</a></nav></header>
+<main>
+<section class="hero">
+<div class="eyebrow">SEU INTERVALO COMEÇA AQUI</div>
+<h1>Um clique.<br>Uma nova diversão.</h1>
+<p>Uma coleção de joguinhos rápidos para desafiar a mente, testar a sorte e dar aquela pausa gostosa no dia.</p>
+<button class="primary" onclick="document.querySelector('#jogos').scrollIntoView({behavior:'smooth'})">Explorar jogos ↓</button>
+</section>
+<section id="jogos">
+<div class="section-head"><div><h2>Escolha seu jogo 🎮</h2><p>Simples de jogar, difícil de largar.</p></div><span class="score">3 jogos disponíveis</span></div>
+<div class="grid">
+<article class="game-card"><div class="emoji">🔢</div><h3>Adivinhe o número</h3><p>Um número secreto entre 1 e 100. Será que você consegue descobrir?</p><button onclick="openGame('guess')">Jogar agora →</button></article>
+<article class="game-card"><div class="emoji">🧠</div><h3>Jogo da memória</h3><p>Encontre todos os pares e teste o poder da sua memória.</p><button onclick="openGame('memory')">Jogar agora →</button></article>
+<article class="game-card"><div class="emoji">⚡</div><h3>Toque rápido</h3><p>Espere o sinal aparecer e clique o mais rápido que conseguir.</p><button onclick="openGame('reaction')">Jogar agora →</button></article>
+</div>
+</section>
+<section class="game-area" id="gameArea">
+<div class="game-top"><h2 id="gameTitle">Jogo</h2><button class="close" onclick="closeGame()">Fechar ✕</button></div>
+<div class="playbox" id="playbox"></div>
+</section>
+<section id="sobre" style="margin-top:45px;color:var(--muted);line-height:1.7"><h2 style="color:white">Feito para se divertir ✨</h2><p>O PlayZone é um cantinho de jogos casuais. Escolha um desafio, jogue no seu ritmo e tente bater seu próprio recorde!</p></section>
+</main>
+<footer>© 2026 PlayZone · Feito para momentos leves 💜</footer>
+<script>
+const area=document.getElementById('gameArea'),box=document.getElementById('playbox'),title=document.getElementById('gameTitle');
+let secret=0,attempts=0,first=null,lock=false,matches=0,reactionTimer=null,startTime=0;
+function openGame(game){area.classList.add('active');area.scrollIntoView({behavior:'smooth',block:'center'});
+ if(game==='guess'){title.textContent='🔢 Adivinhe o número';secret=Math.floor(Math.random()*100)+1;attempts=0;box.innerHTML=`<p>Escolhi um número de 1 a 100. Faça sua tentativa!</p><input class="game-input" id="guessInput" type="number" min="1" max="100" placeholder="Número"><button class="action" onclick="guess()">Tentar</button><p id="guessMsg">Tentativas: 0</p>`;}
+ if(game==='memory'){title.textContent='🧠 Jogo da memória';first=null;lock=false;matches=0;let vals=['🍓','🚀','🐸','🌈','🍕','🎧','⭐','🐼'];let deck=[...vals,...vals].sort(()=>Math.random()-.5);box.innerHTML='<p>Encontre os 8 pares!</p><div class="memory-grid">'+deck.map((v,i)=>`<button class="memory-tile" data-v="${v}" onclick="flip(this)">?</button>`).join('')+'</div><p id="memoryMsg">Pares encontrados: 0 de 8</p>'; }
+ if(game==='reaction'){title.textContent='⚡ Toque rápido';box.innerHTML='<p id="reactionMsg">Clique em começar e espere a tela ficar verde. Não se adiante!</p><button class="action" id="reactionBtn" onclick="startReaction()">Começar</button>';}
+}
+function closeGame(){area.classList.remove('active');clearTimeout(reactionTimer)}
+function guess(){let val=Number(document.getElementById('guessInput').value),msg=document.getElementById('guessMsg');if(!val||val<1||val>100){msg.textContent='Digite um número entre 1 e 100.';return}attempts++;msg.textContent=val===secret?`🎉 Acertou em ${attempts} tentativa(s)! Recomece para jogar de novo.`:val<secret?`⬆️ É maior! Tentativas: ${attempts}`:`⬇️ É menor! Tentativas: ${attempts}`;}
+function flip(el){if(lock||el.classList.contains('open')||el.disabled)return;el.textContent=el.dataset.v;el.classList.add('open');if(!first){first=el;return}if(first.dataset.v===el.dataset.v){first.disabled=true;el.disabled=true;first=null;matches++;document.getElementById('memoryMsg').textContent=`Pares encontrados: ${matches} de 8${matches===8?' — Você venceu! 🎉':''}`;}else{lock=true;let prev=first;first=null;setTimeout(()=>{prev.textContent='?';el.textContent='?';prev.classList.remove('open');el.classList.remove('open');lock=false},750)}}
+function startReaction(){clearTimeout(reactionTimer);let btn=document.getElementById('reactionBtn'),msg=document.getElementById('reactionMsg');btn.disabled=true;btn.textContent='Aguarde...';msg.textContent='Não clique ainda!';box.style.background='#6d344b';reactionTimer=setTimeout(()=>{box.style.background='#174c43';startTime=performance.now();msg.textContent='AGORA! CLIQUE!';btn.disabled=false;btn.textContent='CLICAR!';btn.onclick=()=>{let ms=Math.round(performance.now()-startTime);msg.textContent=`⚡ Seu tempo: ${ms} ms. ${ms<250?'Reflexos incríveis!':'Tente mais uma vez!'}`;btn.textContent='Jogar novamente';btn.onclick=startReaction;box.style.background='#ffffff08'}},1200+Math.random()*2800);}
+</script>
+</body>
+</html>
