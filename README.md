@@ -24,11 +24,14 @@ Prepare sua memória! Encontre os 8 pares de figuras iguais escondidas nas carta
 Aqui, cada milissegundo conta! Aguarde a tela ficar verde e clique o mais rápido que puder. Mas cuidado: não vale se antecipar! Teste seus reflexos e descubra a velocidade da sua reação.
 
 💜 Como jogar?
+
 É muito simples! Não precisa instalar nada, criar uma conta ou fazer complicações.
+
 1º Escolha seu desafio: navegue pelos jogos disponíveis e selecione seu favorito.
 2º Clique em jogar: cada jogo possui suas próprias instruções e mecânicas.
 3º Entre na diversão: teste suas habilidades, aprenda com as tentativas e supere os desafios.
 4º Tente novamente: melhore seu desempenho e bata seus próprios recordes!
+
 ✨ Mais do que jogos, momentos de diversão!
 O PlayZone foi pensado para proporcionar uma pausa leve e divertida na rotina. É aquele cantinho perfeito para relaxar, estimular o raciocínio, desafiar os reflexos e, principalmente, se divertir.
 
